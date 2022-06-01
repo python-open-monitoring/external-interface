@@ -65,8 +65,8 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="dropdown mb-4">
-                                                        <a href="https://t.me/UnihotelMonitoringBot" target="_blank" class="btn btn-primary" type="button" aria-haspopup="true" aria-expanded="false">
-                                                            Open telegram bot @UnihotelMonitoringBot
+                                                        <a href="https://t.me/Mon7Bot_bot" target="_blank" class="btn btn-primary" type="button" aria-haspopup="true" aria-expanded="false">
+                                                            Open telegram bot @Mon7Bot_bot
                                                         </a>
                                                     </div>                                                    
                                                     <div class="mb-3">
