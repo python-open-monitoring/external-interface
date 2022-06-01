@@ -72,7 +72,6 @@
                                                     </div>
                                                     <div v-if="!$v.monitor_name.minLength"><font size="2">The name must contain a minimum {{ $v.monitor_name.$params.minLength.min }} characters</font></div>
                                                     <div v-if="!$v.monitor_name.maxLength"><font size="2">The name must contain a maximum {{ $v.monitor_name.$params.minLength.max }} characters</font></div>
-                                                    <div v-if="!$v.monitor_name.required"><font size="2">Name is required</font></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-12">
@@ -80,7 +79,6 @@
                                                     </div>
                                                     <div v-if="!$v.monitor_host.minLength"><font size="2">The host must contain a minimum {{ $v.monitor_host.$params.minLength.min }} characters</font></div>
                                                     <div v-if="!$v.monitor_host.maxLength"><font size="2">The host must contain a maximum {{ $v.monitor_host.$params.minLength.max }} characters</font></div>
-                                                    <div v-if="!$v.monitor_host.required"><font size="2">Host is required</font></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-12">
@@ -89,7 +87,6 @@
                                                     <div v-if="!$v.monitor_port.minLength"><font size="2">The port must contain a minimum {{ $v.monitor_port.$params.minLength.min }} characters</font></div>
                                                     <div v-if="!$v.monitor_port.maxLength"><font size="2">The port must contain a maximum {{ $v.monitor_port.$params.minLength.max }} characters</font></div>
                                                     <div v-if="!$v.monitor_port.validValue"><font size="2">The port can only contain numbers</font></div>
-                                                    <div v-if="!$v.monitor_port.required"><font size="2">Port is required</font></div>
                                                 </div>                                                                                                
                                                 <button class="btn btn-primary btn-user btn-block" type="submit" :disabled="$v.$invalid" id="MonitorView__edit_form__submit">
                                                     Edit monitor
@@ -107,7 +104,6 @@
                                                     </div>
                                                     <div v-if="!$v.restore_host.minLength"><font size="2">The host must contain a minimum {{ $v.restore_host.$params.minLength.min }} characters</font></div>
                                                     <div v-if="!$v.restore_host.maxLength"><font size="2">The host must contain a maximum {{ $v.restore_host.$params.minLength.max }} characters</font></div>
-                                                    <div v-if="!$v.restore_host.required"><font size="2">Host is required</font></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-12">
@@ -116,26 +112,22 @@
                                                     <div v-if="!$v.restore_port.minLength"><font size="2">The port must contain a minimum {{ $v.restore_port.$params.minLength.min }} characters</font></div>
                                                     <div v-if="!$v.restore_port.maxLength"><font size="2">The port must contain a maximum {{ $v.restore_port.$params.minLength.max }} characters</font></div>
                                                     <div v-if="!$v.restore_port.validValue"><font size="2">The port can only contain numbers</font></div>
-                                                    <div v-if="!$v.restore_port.required"><font size="2">Port is required</font></div>
                                                 </div>  
                                                 <div class="form-group">
                                                     <div class="col-xs-12">
                                                         <input class="form-control form-control-user" id="MonitorView__restore_form__username" required="" placeholder="User" value="" v-model="restore_username">
                                                     </div>
-                                                    <div v-if="!$v.restore_username.required"><font size="2">User is required</font></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-12">
                                                         <input class="form-control form-control-user" id="MonitorView__restore_form__password" required="" placeholder="Password" value="" v-model="restore_password">
                                                     </div>
-                                                    <div v-if="!$v.restore_password.required"><font size="2">Password is required</font></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-xs-12">
                                                         <textarea class="form-control form-control-user" id="MonitorView__restore_form__port" required="" placeholder="Commands" value="" v-model="restore_commands" style="height:400px;">
                                                         </textarea>
                                                     </div>
-                                                    <div v-if="!$v.restore_commands.required"><font size="2">Commands is required</font></div>
                                                 </div>                                                                                                
                                                 <button class="btn btn-primary btn-user btn-block" type="submit" :disabled="$v.$invalid" id="MonitorView__restore_form__submit">
                                                     Save
@@ -243,41 +235,27 @@ export default {
     },
     validations: {
         monitor_name: {
-            required,
             minLength: minLength(1),
             maxLength: maxLength(30),
         },
         monitor_host: {
-            required,
             minLength: minLength(3),
             maxLength: maxLength(90),
         },
         monitor_port: {
-            required,
             minLength: minLength(1),
             maxLength: maxLength(5),
             validValue: val => /^\d+$/.test(val),
         },
         restore_host: {
-            required,
             minLength: minLength(3),
             maxLength: maxLength(90),
         },
         restore_port: {
-            required,
             minLength: minLength(1),
             maxLength: maxLength(5),
             validValue: val => /^\d+$/.test(val),
         },       
-        restore_username: {
-            required,    
-        },
-        restore_password: {
-            required,    
-        },
-        restore_commands: {
-            required,    
-        },
     },    
     methods: {
         editMonitor: function() {
